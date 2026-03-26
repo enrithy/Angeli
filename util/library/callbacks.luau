@@ -116,7 +116,7 @@ local function create_signal(signal)
         })
     end
 
-    function signal:create_dialog(dialog)
+    function main:create_dialog(dialog)
         return main:Dialog({
             Title = dialog.title,
             Content = dialog.content or '',
