@@ -117,10 +117,19 @@ local function create_signal(signal)
     end
 
     function main:create_dialog(dialog)
+        local buttons = {}
+    
+        for _, button in next, dialog.buttons do
+            table.insert(buttons, {
+                Title = button.title,
+                Callback = button.callback
+            })
+        end
+    
         return main:Dialog({
             Title = dialog.title,
             Content = dialog.content or '',
-            Buttons = dialog.buttons or {}
+            Buttons = buttons
         })
     end
 
